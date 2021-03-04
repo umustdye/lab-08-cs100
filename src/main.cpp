@@ -8,15 +8,27 @@
 #include "div.hpp"
 #include "pow.hpp"
 #include "visitor_latex.hpp"
+#include "visitor_mathml.hpp"
 
 using std::cout;
 using std::endl;
 
 int main() {
+    /*
     VisitorLatex *visit = new VisitorLatex;
     Base *base = new Pow(new Op(5), new Op(2));
 
     cout<<visit->printLatex(base)<<endl;
+
+    delete visit;
+    delete base;
+    */
+
+
+    VisitorMathML *visit = new VisitorMathML;
+    Base *base = new Pow(new Op(5), new Op(2));
+
+    cout<<visit->printMathML(base)<<endl;
 
     delete visit;
     delete base;

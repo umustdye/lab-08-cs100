@@ -6,4 +6,4 @@ cmake*
 *.o
 *.a
 test
-
+exe
