@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "iteratorTest.hpp"
+#include "latexTest.hpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
