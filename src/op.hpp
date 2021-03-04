@@ -21,6 +21,9 @@ class Op : public Base {
         virtual Base* get_child(int i) override {
             return nullptr;
         }
+        void accept(Visitor *visitor, int index) {
+            visitor.visit_op(this);
+        }
 };
 
 #endif //__OP_HPP__
