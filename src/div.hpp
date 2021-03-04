@@ -62,9 +62,9 @@ class Div: public Base
         }
         void accept(Visitor *visitor, int index) {
             switch(index) {
-                case 0: visitor.visit_div_begin(this); break;
-                case 1: visitor.visit_div_middle(this); break;
-                case 2: visitor.visit_div_end(this); break;
+                case 0: visitor->visit_div_begin(this); break;
+                case 1: visitor->visit_div_middle(this); break;
+                case 2: visitor->visit_div_end(this); break;
             }
         }
 };

@@ -2,6 +2,7 @@
 #define __OP_HPP__
 
 #include "base.hpp"
+#include "visitor.hpp"
 #include <sstream>//Since std::to_string doesn't allow precision other than 6 digits for doubles
 
 class Op : public Base {
@@ -22,7 +23,7 @@ class Op : public Base {
             return nullptr;
         }
         void accept(Visitor *visitor, int index) {
-            visitor.visit_op(this);
+            visitor->visit_op(this);
         }
 };
 

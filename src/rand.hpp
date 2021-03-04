@@ -42,7 +42,7 @@ class Rand : public Base
             return nullptr;
         }
         void accept(Visitor *visitor, int index) {
-            visitor.visit_rand(this);
+            visitor->visit_rand(this);
         }
 };
 

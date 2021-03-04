@@ -46,9 +46,9 @@ class Sub: public Base
         }
         void accept(Visitor *visitor, int index) {
             switch(index) {
-                case 0: visitor.visit_sub_begin(this); break;
-                case 1: visitor.visit_sub_middle(this); break;
-                case 2: visitor.visit_sub_end(this); break;
+                case 0: visitor->visit_sub_begin(this); break;
+                case 1: visitor->visit_sub_middle(this); break;
+                case 2: visitor->visit_sub_end(this); break;
             }
         }
 };
