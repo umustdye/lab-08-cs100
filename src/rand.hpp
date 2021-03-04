@@ -35,6 +35,12 @@ class Rand : public Base
 			strm<<value;
 			return strm.str();
 		}
+        virtual int number_of_children() override {
+            return 0;
+        }
+        virtual Base* get_child(int i) override {
+            return nullptr;
+        }
 
 };
 

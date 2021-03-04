@@ -7,32 +7,42 @@ using namespace std;
 
 class Sub: public Base
 {
-        public:
-		Base* left;
-		Base* right;
-                Sub(Base* left, Base* right)
-		: Base()
-                {
-			this->left = left;
-			this->right = right;
-                }
+    public:
+        Base* left;
+        Base* right;
+        Sub(Base* left, Base* right)
+            : Base()
+        {
+            this->left = left;
+            this->right = right;
+        }
 
-		~Sub()
-		{
-			delete left;
-			delete right;			
-		}
+        ~Sub()
+        {
+            delete left;
+            delete right;			
+        }
 
 
-                virtual double evaluate()
-                {
-                        return left->evaluate() - right->evaluate();
-                }
+        virtual double evaluate()
+        {
+            return left->evaluate() - right->evaluate();
+        }
 
-                virtual string stringify()
-                {
-                        return "(" + left->stringify() + "-" + right->stringify() + ")";
-                }
+        virtual string stringify()
+        {
+            return "(" + left->stringify() + "-" + right->stringify() + ")";
+        }
+        virtual int number_of_children() override {
+            int numChild = 0;
+            if(left) ++numChild;
+            if(right) ++numChild;
+            return numChild;
+        }
+        virtual Base* get_child(int i) override {
+            if(i) return right;
+            else return left;
+        }
 };
 
 #endif //__SUBOPMOCK_HPP__

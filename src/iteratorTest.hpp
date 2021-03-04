@@ -32,6 +32,7 @@ TEST(iteratorTest, constructor)
     it->next();
 std::cout<<it->current_node()->stringify()<<std::endl;
     it->next();
+    std::cout<<"num child: "<<it->current_node()->number_of_children()<<std::endl;
 std::cout<<it->current_node()->stringify()<<std::endl;
     it->next();
 std::cout<<it->current_node()->stringify()<<std::endl;
@@ -43,10 +44,9 @@ std::cout<<it->current_node()->stringify()<<std::endl;
  std::cout<<it->current_node()->stringify()<<std::endl;
     it->next();
 
-
     //Base* currentNode = it->current_node();
     //std::cout<<currentNode->stringify()<<std::endl;
-    std::cout<<it->current_index()<<std::endl;
+//    std::cout<<it->current_index()<<std::endl;
     //std::cout<<it->current_node.stringify()<<std::endl;
 }
 
