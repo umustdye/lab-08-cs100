@@ -30,52 +30,52 @@ class VisitorLatex : public Visitor {
             str += "{" + strm.str() + "}";
         }
         virtual void visit_add_begin(Add* node) {
-            str += "(";
+            str += "{(";
         }
         virtual void visit_add_middle(Add* node) {
             str += "+";
         }
         virtual void visit_add_end(Add* node) {
-            str += ")";
+            str += ")}";
         }
         virtual void visit_sub_begin(Sub* node) {
-            str += "(";
+            str += "{(";
         }
         virtual void visit_sub_middle(Sub* node) {
             str += "-";
         }
         virtual void visit_sub_end(Sub* node) {
-            str += ")";
+            str += ")}";
         }
         virtual void visit_mult_begin(Mult* node) {
-            str += "(";
+            str += "{(";
         }
         virtual void visit_mult_middle(Mult* node) {
             str += "\\cdot";
         }
         virtual void visit_mult_end(Mult* node) {
-            str += ")";
+            str += ")}";
         }
         virtual void visit_div_begin(Div* node) {
-            str += "\\frac";
+            str += "{\\frac";
         }
         virtual void visit_div_middle(Div* node) {
 
         }
         virtual void visit_div_end(Div* node) {
-            
+            str += "}";
         }
         virtual void visit_pow_begin(Pow* node) {
-            str += "(";
+            str += "{(";
         }
         virtual void visit_pow_middle(Pow* node) {
             str += "^";
         }
         virtual void visit_pow_end(Pow* node) {
-            str += ")";
+            str += ")}";
         }
         string printLatex(Base *base) {
-            str = "${";
+            str = "$";
 
             //Create iterator
             Iterator *itr = new Iterator(base);
@@ -90,7 +90,7 @@ class VisitorLatex : public Visitor {
             delete itr;
 
             //Finish latex string and return
-            str += "}$";
+            str += "$";
             return str;
         }
 };
