@@ -15,7 +15,6 @@ TEST(iteratorTest, traversals)
     Base* three = new Op(3);
     Base* seven = new Op(7);
     Base* four = new Op(4);
-    Base* two = new Op(2);
     Base* add = new Add(three, seven);
     Base* mult = new Mult(add, four);
     Iterator* it = new Iterator(mult);
@@ -27,6 +26,8 @@ TEST(iteratorTest, traversals)
         traversals++;
     }
     EXPECT_EQ(traversals, 9);
+    delete mult;
+    delete it;
 }
 
 TEST(iteratorTest, op)
@@ -36,6 +37,8 @@ TEST(iteratorTest, op)
     EXPECT_EQ(it->current_node()->stringify(), "4");
     EXPECT_EQ(it->current_index(), 0);
     EXPECT_EQ(it->current_node()->number_of_children(), 0);
+    delete four;
+    delete it;
 }
 
 
@@ -44,7 +47,6 @@ TEST(iteratorTest, correctValues)
     Base* three = new Op(3);
     Base* seven = new Op(7);
     Base* four = new Op(4);
-    Base* two = new Op(2);
     Base* add = new Add(three, seven);
     Base* mult = new Mult(add, four);
     Iterator* it = new Iterator(mult);
@@ -73,10 +75,11 @@ TEST(iteratorTest, correctValues)
     EXPECT_EQ(it->current_node()->stringify(), four->stringify());
     it->next();
 
-
     EXPECT_EQ(it->current_node()->stringify(), mult->stringify());
     it->next();
 
+    delete mult;
+    delete it;
 }
 
 
@@ -85,7 +88,6 @@ TEST(iteratorTest, index)
     Base* three = new Op(3);
     Base* seven = new Op(7);
     Base* four = new Op(4);
-    Base* two = new Op(2);
     Base* add = new Add(three, seven);
     Base* mult = new Mult(add, four);
     Iterator* it = new Iterator(mult);
@@ -114,14 +116,11 @@ TEST(iteratorTest, index)
     EXPECT_EQ(it->current_index(), 0);
     it->next();
 
-
     EXPECT_EQ(it->current_index(), 2);
     it->next();
 
-
-
-
-
+    delete mult;
+    delete it;
 }
 
 
