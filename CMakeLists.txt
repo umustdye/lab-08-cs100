@@ -6,10 +6,7 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(test
     src/unit_test.cpp
-)
-
-ADD_EXECUTABLE(lab
-    src/main.cpp
+    src/iterator.cpp   
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
