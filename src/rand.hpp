@@ -11,37 +11,39 @@ using namespace std;
 
 class Rand : public Base
 {
-	public:
-		double value;
-		
-		Rand()
-		: Base()
-		{
-			//seed the random number generator
-			srand(static_cast<unsigned int>(time(0)));
-			this->value = rand() % 100;
-		}
-		virtual ~Rand(){}
-		virtual double evaluate()
-		override
-		{
-			return value;
-		}
+    public:
+        double value;
 
-		virtual string stringify()
-		override
-		{
-			stringstream strm;
-			strm<<value;
-			return strm.str();
-		}
+        Rand()
+            : Base()
+        {
+            //seed the random number generator
+            srand(static_cast<unsigned int>(time(0)));
+            this->value = rand() % 100;
+        }
+        virtual ~Rand(){}
+        virtual double evaluate()
+            override
+            {
+                return value;
+            }
+
+        virtual string stringify()
+            override
+            {
+                stringstream strm;
+                strm<<value;
+                return strm.str();
+            }
         virtual int number_of_children() override {
             return 0;
         }
         virtual Base* get_child(int i) override {
             return nullptr;
         }
-
+        void accept(Visitor *visitor, int index) {
+            visitor.visit_rand(this);
+        }
 };
 
 #endif //__RAND_HPP__

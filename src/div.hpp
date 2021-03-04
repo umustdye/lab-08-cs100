@@ -2,6 +2,7 @@
 #define __DIV_HPP__
 
 #include "base.hpp"
+#include "visitor.hpp"
 
 using namespace std;
 
@@ -58,6 +59,13 @@ class Div: public Base
         virtual Base* get_child(int i) override {
             if(i) return right;
             else return left;
+        }
+        void accept(Visitor *visitor, int index) {
+            switch(index) {
+                case 0: visitor.visit_div_begin(this); break;
+                case 1: visitor.visit_div_middle(this); break;
+                case 2: visitor.visit_div_end(this); break;
+            }
         }
 };
 
